@@ -1,9 +1,12 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-/*
-Route::get('/planets', function () {
-    $planets = [
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class planetcontroller extends Controller
+{
+    private $planets = [
         [
             'name' => 'Mars',
             'description' => 'Mars is the fourth planet from the Sun and the second-smallest planet in the Solar System, being larger than only Mercury.'
@@ -22,25 +25,9 @@ Route::get('/planets', function () {
         ],
     ];
 
+public function index()
 
-
-
-    if (request()->has('name')) {
-        $planets = collect($planets)->where('name', ucfirst(request('name')))->toArray();
-
-        echo request('name');
-   
-        return view('planets', compact('planets'));
-    } else {
-        return view('planets', compact('planets'));
-    }
-
-
-
-   
-});
-
-
-*/
-
-
+{
+    return view('welcome',['planets' => $this->planets]);
+}
+}
